@@ -14,11 +14,10 @@ public class program {
         String equation = "2? + ?5 = 69";
         System.out.println("Исходное уравнение: " + equation);
         Solution(equation);
-
     }
 
     public static void Solution(String equation) {
-        StringBuilder numbers[] = Splitting(equation);
+        StringBuilder numbers[] = Splitting(equation);// выделяем слагаемые
         // #region подсчитаем число "?" в уравнении
         int QuestionCount = 0;
         for (int i = 0; i < equation.length(); i++)
@@ -31,8 +30,8 @@ public class program {
             MaxNumber *= 10;
 
         int Number = 0;
-        do {
-            if (TryCase(numbers, Number))
+        do {//перебираем все возможные варианты.
+            if (TryCase(numbers, Number))//решение найдено!
                 return;
             Number++;
         } while (Number < MaxNumber);
@@ -62,7 +61,7 @@ public class program {
                 Integer.parseInt(CopyNumbers[1].toString()) == Integer.parseInt(CopyNumbers[2].toString())) {
             System.out.println("Найдено решение!:");
             System.out.println(
-                    CopyNumbers[0].toString() + " + " + CopyNumbers[1].toString() + " = " + CopyNumbers[2].toString());
+                    CopyNumbers[0].append(" + ").append(CopyNumbers[1]).append(" = ").append(CopyNumbers[2]).toString());
             return true;
         }
         return false;
@@ -83,6 +82,5 @@ public class program {
         numbers[1] = new StringBuilder(equation.substring(equation.indexOf("+") + 1, equation.indexOf("=")));
         numbers[2] = new StringBuilder(equation.substring(equation.indexOf("=") + 1, equation.length()));
         return numbers;
-
     }
 }
