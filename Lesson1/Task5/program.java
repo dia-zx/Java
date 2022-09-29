@@ -30,20 +30,20 @@ public class program {
         for (int i = 0; i < QuestionCount; i++)
             MaxNumber *= 10;
 
-        int SomeNumbers = 0;
-
+        int Number = 0;
         do {
-            if (TryCase(numbers, SomeNumbers))
+            if (TryCase(numbers, Number))
                 return;
-            SomeNumbers++;
-
-        } while (SomeNumbers < MaxNumber);
+            Number++;
+        } while (Number < MaxNumber);
         System.out.println("Нет решений!");
     }
 
     /**
-     * подставляет заданные числа (из SomeNumbers) в уравнение вместо '?' и проверяет равенство.
-     * @param numbers закодированные 3 числа из уравнения
+     * подставляет заданные числа (из SomeNumbers) в уравнение вместо '?' и
+     * проверяет равенство.
+     * 
+     * @param numbers     закодированные 3 числа из уравнения
      * @param SomeNumbers число из которого берем числа для подстановки вместо ?
      * @return
      */
