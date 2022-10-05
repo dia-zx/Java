@@ -23,19 +23,19 @@ public class Task1 {
     public static void main(String[] args) {
         set_logging();
         String[] files;
-        files = get_files();        
-        System.out.println(String.join("\n",  Arrays.asList(files)) );
+        files = get_files();
+        System.out.println(String.join("\n", Arrays.asList(files)));
         save_strings("result.txt", files);
     }
 
     /**
      * Возвращает массив String[] из имен файлов в текущей дирректории.
+     * 
      * @return массив String[] из имен файлов
      */
     public static String[] get_files() {
 
         File dir = new File("."); // path указывает на директорию
-        System.out.println(dir.getAbsolutePath());
 
         File[] files;
         try {
@@ -55,27 +55,33 @@ public class Task1 {
         return list.toArray(new String[0]);
     }
 
-    
     /**
      * Записывает массив строк в файл.
+     * 
      * @param file_name имя файла
-     * @param data строковый массив для записи
+     * @param data      строковый массив для записи
      */
     public static void save_strings(String file_name, String[] data) {
         File f = new File(file_name);
+        FileWriter fileWriter = null;
         try {
-            if (f.exists()) {
+            if (f.exists())
                 f.createNewFile();
-            }
-            FileWriter fileWriter = new FileWriter(f, false);
+            fileWriter = new FileWriter(f, false);
             for (String string : data) {
                 fileWriter.write(string + '\n');
             }
             fileWriter.flush();
-            fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
             logger.info(e.getMessage());
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.info(e.getMessage());
+            }
         }
     }
 
