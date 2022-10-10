@@ -42,4 +42,3 @@ __Task3*:__ Дана строка sql-запроса "select * from students whe
 Если значение null, то параметр не должен попадать в запрос.
 Параметры для фильтрации: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
 (используйте методы split и replace)
-=======
