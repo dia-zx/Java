@@ -65,7 +65,7 @@ public class Task1 {
         File f = new File(file_name);
         FileWriter fileWriter = null;
         try {
-            if (f.exists())
+            if (!f.exists())
                 f.createNewFile();
             fileWriter = new FileWriter(f, false);
             for (String string : data) {
