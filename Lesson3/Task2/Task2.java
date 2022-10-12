@@ -16,20 +16,19 @@ public class Task2 {
             list.add(i);
         System.out.println("Максимальный элемент: " + Collections.max(list));
         System.out.println("Минимальный элемент: " + Collections.min(list));
-
-        System.out.println("Минимальный элемент: " + sum_list(list));
+        System.out.println("Среднее арифметическое: " + ave_list(list));
     }
     
     /**
-     * Вычисление суммы элементов списка
-     * @param list
-     * @return сумма всех элементов
+     * Вычисление среднего арифметического элементов списка
+     * @param list список
+     * @return среднее арифметическое элементов
      */
-    static int sum_list(List<Integer> list)
+    static <T extends  Number> double ave_list(List<T> list)
     {
-        int sum = 0;
-        for (int i : list) 
-            sum += i;
-        return sum;
+        double sum = 0.;
+        for (T i : list) 
+            sum += + i.doubleValue();
+        return sum / list.size();
     }
 }
