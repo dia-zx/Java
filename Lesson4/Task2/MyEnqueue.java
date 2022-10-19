@@ -11,7 +11,7 @@ public class MyEnqueue<T> {
         list = new LinkedList<T>();
     }
 
-    private List<T> list;
+    private LinkedList<T> list;
 
     /**
      * помещает элемент в конец очереди
@@ -28,9 +28,8 @@ public class MyEnqueue<T> {
      * @return
      */
     public T dequeue() {
-        T temp = list.get(0);
-        list.remove(0);
-        return temp;
+
+        return list.pollFirst();
     }
 
     /**
@@ -39,7 +38,7 @@ public class MyEnqueue<T> {
      * @return
      */
     public T first() {
-        return list.get(0);
+        return list.peekFirst();
     }
 
     @Override
